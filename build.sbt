@@ -12,7 +12,7 @@ val gitDevUrl = s"git@github.com:$gitHubOwner/$projectName.git"
 val catsVersion = "0.9.0"
 val macroCompatVersion = "1.1.1"
 val macroParadiseVersion = "2.1.0"
-val shapelessVersion = "2.3.2"
+val shapelessVersion = "2.3.3-SNAPSHOT"
 val scalaCheckVersion = "1.13.4"
 val scalaXmlVersion = "1.0.6"
 val scalazVersion = "7.2.13"
@@ -203,7 +203,8 @@ lazy val commonSettings = Def.settings(
     import $rootPkg.types.all._
     import shapeless.{ ::, HList, HNil }
     import shapeless.nat._
-  """
+  """,
+  resolvers += Resolver.sonatypeRepo("snapshots")
 )
 
 def moduleConfig(name: String): Project => Project =
